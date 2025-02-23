@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBC360</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0056b3;
+            padding: 15px;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .feature {
+            background: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 110%;
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .contact {
+            text-align: center;
+            padding: 20px;
+            background: #0056b3;
+            color: white;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background: #ffcc00;
+            color: black;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        button:hover {
+            background: #e6b800;
+        }
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+            }
+            .feature {
+                width: 80%;
+            }
+        }
+        footer {
+            background-color: #f7f9fa;
+            text-align: center;
+            font-style: normal;
+            font-family: serif;
+            text-decoration: dotted;
+            text-wrap: 20px;
+            color: #0056b3;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">CBC360</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>Welcome to CBC360</h1>
+        <p>Your gateway to competency-based learning</p>
+        <button onclick="window.location.href='#about'">Get Started</button>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>CBC360 is dedicated to providing quality digital learning resources tailored for CBC education.</p>
+    </section>
+
+    <section id="features" class="features">
+        <p><h2>Key Features</h2></p>
+        <br>
+        <div class="feature-list">
+            <div class="feature">
+                <h3>Interactive Lessons</h3>
+                <p>Engaging content for learners.</p>
+            </div>
+            <div class="feature">
+                <h3>Parental Involvement</h3>
+                <p>Guidance for parents to support learning.</p>
+            </div>
+            <div class="feature">
+                <h3>Teacher Resources</h3>
+                <p>Lesson plans and assessments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+<footer>
+    <div class="footer">
+        <p>Copyright © 2025 CBC360. All Rights Reserved</p>
+    </div>
+
+</footer>
+</html>
